@@ -74,3 +74,28 @@ The server will start on the port specified in the .env file (default: 5000).
 The database uses MongoDB and has the following collections:
 
 ### User Collection
+
+Stores user information including their roles.
+
+```json
+{
+  "username": "string",
+  "password": "string (hashed)",
+  "role": "enum: ['user', 'admin']",
+  "createdAt": "date"
+}
+```
+
+### Transaction Collection
+
+Stores the transaction details made by users.
+
+```json
+{
+  "userId": "ObjectId (reference to User)",
+  "amount": "number",
+  "status": "enum: ['pending', 'approved', 'rejected']",
+  "createdAt": "date",
+  "updatedAt": "date"
+}
+```
